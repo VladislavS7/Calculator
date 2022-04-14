@@ -12,15 +12,29 @@ namespace AnalaizerClass
             int n = 0;
             foreach (var item in expression)
             {
-                if
+                if (item == '(') ++n;
+                else if (item == ')') --n;
+            }
+
+            if (n == 0)
+                return true;
+            else if(n > 0)
+            {
+                erposition = expression.LastIndexOf('(');
+                return false;
+            }
+            else
+            {
+                erposition = expression.LastIndexOf(')');
+                return false;
             }
         }
-        public static string Format() { }
-        public static System.Collections.ArrayList CreateStack()
-        {
+        //public static string Format() { }
+        //public static System.Collections.ArrayList CreateStack()
+        //{
 
-        }
-        public static string RunEstimate() { }
-        public static string Estimate() { }
+        //}
+        //public static string RunEstimate() { }
+        //public static string Estimate() { }
     }
 }
