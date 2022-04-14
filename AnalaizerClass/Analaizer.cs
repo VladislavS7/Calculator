@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AnalaizerClass
 {
@@ -34,7 +35,53 @@ namespace AnalaizerClass
         //{
 
         //}
-        //public static string RunEstimate() { }
+        public static string RunEstimate()
+        {
+            string[] expTokens = expression.Split(' ');
+            Stack<decimal> stack = new Stack<decimal>();
+            decimal number = decimal.Zero;
+
+            foreach (string token in expTokens)
+            {
+                if (decimal.TryParse(token, out number))
+                {
+                    stack.Push(number);
+                }
+                else
+                {
+                    switch (token)
+                    {
+                        case "*":
+                            {
+                                stack.Push(stack.Pop() * stack.Pop());
+                                break;
+                            }
+                        case "/":
+                            {
+                                number = stack.Pop();
+                                stack.Push(stack.Pop() / number);
+                                break;
+                            }
+                        case "+":
+                            {
+                                stack.Push(stack.Pop() + stack.Pop());
+                                break;
+                            }
+                        case "-":
+                            {
+                                number = stack.Pop();
+                                stack.Push(stack.Pop() - number);
+                                break;
+                            }
+                        default:
+                            return "error";
+                            break;
+                    }
+                }
+            }
+
+            return stack.Pop().ToString();
+        }
         //public static string Estimate() { }
     }
 }
