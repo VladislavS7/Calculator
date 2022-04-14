@@ -14,7 +14,7 @@ namespace Calculator
         [STAThread]
         static void Main(string[] args)
         {
-            string expression = args[0];//Вираз, який передається з консолі
+            //string expression = args[0];//Вираз, який передається з консолі
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
