@@ -74,7 +74,6 @@ namespace Calculator
             // 
             this.text_Expression.Location = new System.Drawing.Point(147, 32);
             this.text_Expression.Name = "text_Expression";
-            this.text_Expression.ReadOnly = true;
             this.text_Expression.Size = new System.Drawing.Size(228, 22);
             this.text_Expression.TabIndex = 1;
             // 
@@ -417,6 +416,7 @@ namespace Calculator
             this.Name = "Form1";
             this.Text = "Calc";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

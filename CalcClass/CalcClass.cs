@@ -11,42 +11,42 @@ namespace CalcClasss
         private static string _lastError = "";
         public static string lastError;
 
-        public static double Add(long a, long b)
+        public static double Add(double a, double b)
         {
             checked
             {
                 return a + b;
             }
         }
-        public static double Sub(long a, long b)
+        public static double Sub(double a, double b)
         {
             checked
             {
                 return a - b;
             }
         }
-        public static double Mult(long a, long b)
+        public static double Mult(double a, double b)
         {
             checked
             {
                 return a * b;
             }
         }
-        public static double Div(long a, long b)
+        public static double Div(double a, double b)
         {
             if (b == 0)
                 throw new DivideByZeroException();
             else
                 return a / b;
         }
-        public static double Mod(long a, long b)
+        public static double Mod(double a, double b)
         {
             checked
             {
                 return a % b;
             }
         }
-        public static double ABS(long a)
+        public static double ABS(double a)
         {
             if (a < 0.0)
             {
@@ -54,7 +54,7 @@ namespace CalcClasss
             }
             return a;
         }
-        public static double IABS(long a)
+        public static double IABS(double a)
         {
             if (a > 0.0)
             {
