@@ -8,3 +8,16 @@ C:\Users\User\Desktop\Calculator\Calculator\Calculator\obj\Debug\Calculator.cspr
 C:\Users\User\Desktop\Calculator\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Calculator\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\Users\User\Desktop\Calculator\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.exe
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\CalcClass.dll
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\CalcClass.pdb
+C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.csproj.CopyComplete
