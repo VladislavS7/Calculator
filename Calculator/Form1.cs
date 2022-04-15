@@ -166,11 +166,34 @@ namespace Calculator
             }
         }
 
+        //Крапка
         private void btn_mod_Click(object sender, EventArgs e)
         {
-            if (text_Expression.Text[text_Expression.Text.Length - 1] != '|')
+            if(text_Expression.Text.Length == 0)
             {
-                text_Expression.Text += "|";
+                return;
+            }
+            string tmp = string.Empty;
+            List<char> digits = new List<char>() { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+            char s;
+            for (int i = text_Expression.Text.Length-1; i >= 0; i--)
+            {
+                s = text_Expression.Text[i];
+                if (!digits.Contains(s))
+                {
+                    tmp = text_Expression.Text.Substring(i);
+                    if (tmp.Length >= 2) 
+                    if (!tmp.Contains('.') && digits.Contains(tmp[1]))
+                    {
+                        text_Expression.Text += ".";
+                        
+                    }
+                    return;
+                }
+                else if(i == 0)
+                {
+                    text_Expression.Text += ".";
+                }
             }
         }
 
@@ -275,82 +298,82 @@ namespace Calculator
         //Обробка натискання на кнопки з клавіатури
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            //if(e.KeyCode == Keys.Escape)
-            //{
-            //    this.Close();
-            //}
-            //if(e.KeyCode == Keys.Enter)
-            //{
-            //    MessageBox.Show("Обчислення виразу");
-            //}
-
-            if (e.KeyCode == Keys.Delete)
-                btn_C.PerformClick();
-        }
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar.ToString())
+            if (e.KeyCode == Keys.Escape)
             {
-                case "0":
-                    btn_0.PerformClick();
-                    break;
-                case "1":
-                    btn_1.PerformClick();
-                    break;
-                case "2":
-                    btn_2.PerformClick();
-                    break;
-                case "3":
-                    btn_3.PerformClick();
-                    break;
-                case "4":
-                    btn_4.PerformClick();
-                    break;
-                case "5":
-                    btn_5.PerformClick();
-                    break;
-                case "6":
-                    btn_6.PerformClick();
-                    break;
-                case "7":
-                    btn_7.PerformClick();
-                    break;
-                case "8":
-                    btn_8.PerformClick();
-                    break;
-                case "9":
-                    btn_9.PerformClick();
-                    break;
-                case "+":
-                    btn_plus.PerformClick();
-                    break;
-                case "-":
-                    btn_sub.PerformClick();
-                    break;
-                case "*":
-                    btn_mul.PerformClick();
-                    break;
-                case "/":
-                    btn_div.PerformClick();
-                    break;
-                case "(":
-                    btn_OpenArc.PerformClick();
-                    break;
-                case ")":
-                    btn_CloseArc.PerformClick();
-                    break;
-                case "=":
-                    btn_equal.PerformClick();
-                    break;
+                this.Close();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                MessageBox.Show("Обчислення виразу");
             }
 
-            if (e.KeyChar.Equals((char)Keys.Enter))
-                btn_equal.PerformClick();
-
-            if (e.KeyChar.Equals((char)Keys.Back))
-                btn_C.PerformClick();
+            //if (e.KeyCode == Keys.Delete)
+              //  btn_C.PerformClick();
         }
+
+        //private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    switch (e.KeyChar.ToString())
+        //    {
+        //        case "0":
+        //            btn_0.PerformClick();
+        //            break;
+        //        case "1":
+        //            btn_1.PerformClick();
+        //            break;
+        //        case "2":
+        //            btn_2.PerformClick();
+        //            break;
+        //        case "3":
+        //            btn_3.PerformClick();
+        //            break;
+        //        case "4":
+        //            btn_4.PerformClick();
+        //            break;
+        //        case "5":
+        //            btn_5.PerformClick();
+        //            break;
+        //        case "6":
+        //            btn_6.PerformClick();
+        //            break;
+        //        case "7":
+        //            btn_7.PerformClick();
+        //            break;
+        //        case "8":
+        //            btn_8.PerformClick();
+        //            break;
+        //        case "9":
+        //            btn_9.PerformClick();
+        //            break;
+        //        case "+":
+        //            btn_plus.PerformClick();
+        //            break;
+        //        case "-":
+        //            btn_sub.PerformClick();
+        //            break;
+        //        case "*":
+        //            btn_mul.PerformClick();
+        //            break;
+        //        case "/":
+        //            btn_div.PerformClick();
+        //            break;
+        //        case "(":
+        //            btn_OpenArc.PerformClick();
+        //            break;
+        //        case ")":
+        //            btn_CloseArc.PerformClick();
+        //            break;
+        //        case "=":
+        //            btn_equal.PerformClick();
+        //            break;
+        //    }
+
+        //    if (e.KeyChar.Equals((char)Keys.Enter))
+        //        btn_equal.PerformClick();
+
+        //    if (e.KeyChar.Equals((char)Keys.Back))
+        //        btn_C.PerformClick();
+        //}
 
     }
 }

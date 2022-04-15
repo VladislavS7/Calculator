@@ -312,13 +312,13 @@ namespace Calculator
             // 
             // btn_mod
             // 
-            this.btn_mod.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_mod.ForeColor = System.Drawing.Color.Red;
+            this.btn_mod.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_mod.ForeColor = System.Drawing.Color.Black;
             this.btn_mod.Location = new System.Drawing.Point(140, 376);
             this.btn_mod.Name = "btn_mod";
             this.btn_mod.Size = new System.Drawing.Size(49, 48);
             this.btn_mod.TabIndex = 18;
-            this.btn_mod.Text = "mod";
+            this.btn_mod.Text = ".";
             this.btn_mod.UseVisualStyleBackColor = true;
             this.btn_mod.Click += new System.EventHandler(this.btn_mod_Click);
             // 
@@ -416,7 +416,6 @@ namespace Calculator
             this.Name = "Form1";
             this.Text = "Calc";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

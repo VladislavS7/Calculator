@@ -21,3 +21,6 @@ C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\Calculator.pdb
 C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\CalcClass.dll
 C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\bin\Debug\CalcClass.pdb
 C:\Users\ecogl\Desktop\Exams\Calculator\Calculator\obj\Debug\Calculator.csproj.CopyComplete
+C:\Users\User\Desktop\Calculator\Calculator\Calculator\bin\Debug\CalcClass.dll
+C:\Users\User\Desktop\Calculator\Calculator\Calculator\bin\Debug\CalcClass.pdb
+C:\Users\User\Desktop\Calculator\Calculator\Calculator\obj\Debug\Calculator.csproj.CopyComplete
