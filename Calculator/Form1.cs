@@ -22,6 +22,13 @@ namespace Calculator
         {
             InitializeComponent();
         }
+        public Form1(string v)
+        {
+            InitializeComponent();
+            this.text_Expression.Text = v;
+            this.Load += Form1_Load;
+
+        }
 
         private void btn_OpenArc_Click(object sender, EventArgs e)
         {
@@ -225,36 +232,40 @@ namespace Calculator
         {
             //Обчислення
 
-            if (CharIsAnOperator(text_Expression.Text[text_Expression.Text.Length - 1].ToString()) || (text_Expression.Text[text_Expression.Text.Length - 1].ToString().Equals(".")) || (text_Expression.Text[text_Expression.Text.Length - 1].ToString().Equals("(")))
-            {
-                MessageBox.Show(@"Error03! Please enter a valid character. 
-                    The last character of the equation cannot be an operator, a decimal separator, or a left parenthesis!",
-                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!ParenthesesAmountIsEqual(text_Expression.Text))
-            {
-                MessageBox.Show(@"Error01!!Please enter a valid character. 
-                The number of left and right parentheses is not the same!", 
-                Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            _fix = text_Expression.Text;
-
             try
             {
-                Onp onp = new Onp(_fix);
-                _nik = onp.PostfixEvaluation(onp.InfixToPostfix());
-            }
-            catch
-            {
-                MessageBox.Show(@"A problem occured!", @"Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                if (CharIsAnOperator(text_Expression.Text[text_Expression.Text.Length - 1].ToString()) || (text_Expression.Text[text_Expression.Text.Length - 1].ToString().Equals(".")) || (text_Expression.Text[text_Expression.Text.Length - 1].ToString().Equals("(")))
+                {
+                    MessageBox.Show(@"Error03! Please enter a valid character. 
+                    The last character of the equation cannot be an operator, a decimal separator, or a left parenthesis!",
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            text_Resualt.Text = _nik.ToString(CultureInfo.InvariantCulture).Replace(',', '.');
+                if (!ParenthesesAmountIsEqual(text_Expression.Text))
+                {
+                    MessageBox.Show(@"Error01!!Please enter a valid character. 
+                The number of left and right parentheses is not the same!",
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                _fix = text_Expression.Text;
+
+                try
+                {
+                    Onp onp = new Onp(_fix);
+                    _nik = onp.PostfixEvaluation(onp.InfixToPostfix());
+                }
+                catch
+                {
+                    MessageBox.Show(@"A problem occured!", @"Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                text_Resualt.Text = _nik.ToString(CultureInfo.InvariantCulture).Replace(',', '.');
+
+            }
+            catch { }
         }
 
 
@@ -306,73 +317,15 @@ namespace Calculator
                 MessageBox.Show("Обчислення виразу");
             }
 
-            //if (e.KeyCode == Keys.Delete)
-              //  btn_C.PerformClick();
         }
 
-        //private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    switch (e.KeyChar.ToString())
-        //    {
-        //        case "0":
-        //            btn_0.PerformClick();
-        //            break;
-        //        case "1":
-        //            btn_1.PerformClick();
-        //            break;
-        //        case "2":
-        //            btn_2.PerformClick();
-        //            break;
-        //        case "3":
-        //            btn_3.PerformClick();
-        //            break;
-        //        case "4":
-        //            btn_4.PerformClick();
-        //            break;
-        //        case "5":
-        //            btn_5.PerformClick();
-        //            break;
-        //        case "6":
-        //            btn_6.PerformClick();
-        //            break;
-        //        case "7":
-        //            btn_7.PerformClick();
-        //            break;
-        //        case "8":
-        //            btn_8.PerformClick();
-        //            break;
-        //        case "9":
-        //            btn_9.PerformClick();
-        //            break;
-        //        case "+":
-        //            btn_plus.PerformClick();
-        //            break;
-        //        case "-":
-        //            btn_sub.PerformClick();
-        //            break;
-        //        case "*":
-        //            btn_mul.PerformClick();
-        //            break;
-        //        case "/":
-        //            btn_div.PerformClick();
-        //            break;
-        //        case "(":
-        //            btn_OpenArc.PerformClick();
-        //            break;
-        //        case ")":
-        //            btn_CloseArc.PerformClick();
-        //            break;
-        //        case "=":
-        //            btn_equal.PerformClick();
-        //            break;
-        //    }
-
-        //    if (e.KeyChar.Equals((char)Keys.Enter))
-        //        btn_equal.PerformClick();
-
-        //    if (e.KeyChar.Equals((char)Keys.Back))
-        //        btn_C.PerformClick();
-        //}
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.btn_equal.TabIndex = 0;
+            this.btn_equal.Click += new EventHandler(btn_equal_Click);
+            this.Controls.Add(btn_equal);
+            btn_equal.PerformClick();
+        }
 
     }
 }
