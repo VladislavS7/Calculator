@@ -16,7 +16,6 @@ namespace Calculator
         double Memory;
         private string _fix;
         private double _nik;
-        private readonly string _undoArrow = char.ConvertFromUtf32(0x00002190);
 
 
         public Form1()
