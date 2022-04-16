@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -82,10 +83,10 @@ namespace AnalaizerClass
 
             return result;
         }
-        //public static System.Collections.ArrayList CreateStack()
-        //{
-
-        //}
+        public static System.Collections.ArrayList CreateStack()
+        {
+            return new System.Collections.ArrayList();
+        }
         public static string RunEstimate()
         {
             string[] expTokens = expression.Split(' ');
@@ -133,6 +134,20 @@ namespace AnalaizerClass
 
             return stack.Pop().ToString();
         }
-        //public static string Estimate() { }
+        public static string Estimate()
+        {
+            if (CheckCurrency() == false)
+                throw new Exception($"Error 1 at <{erposition}>");
+
+            string result = Format();
+            if(result[0] == '&')
+                throw new Exception(result);
+
+            expression = result;
+            ArrayList stack = CreateStack();
+
+            expression = stack.ToString();
+            return RunEstimate();
+        }
     }
 }
