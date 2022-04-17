@@ -16,3 +16,9 @@ C:\Users\ecogl\Desktop\Exam2\Calculator\CalcClass\obj\Debug\CalcClasss.csproj.As
 C:\Users\ecogl\Desktop\Exam2\Calculator\CalcClass\obj\Debug\CalcClasss.csproj.CoreCompileInputs.cache
 C:\Users\ecogl\Desktop\Exam2\Calculator\CalcClass\obj\Debug\CalcClass.dll
 C:\Users\ecogl\Desktop\Exam2\Calculator\CalcClass\obj\Debug\CalcClass.pdb
+C:\Users\User\Desktop\CalculatorExam\Calculator\CalcClass\bin\Debug\CalcClass.dll
+C:\Users\User\Desktop\CalculatorExam\Calculator\CalcClass\bin\Debug\CalcClass.pdb
+C:\Users\User\Desktop\CalculatorExam\Calculator\CalcClass\obj\Debug\CalcClasss.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CalculatorExam\Calculator\CalcClass\obj\Debug\CalcClasss.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CalculatorExam\Calculator\CalcClass\obj\Debug\CalcClass.dll
+C:\Users\User\Desktop\CalculatorExam\Calculator\CalcClass\obj\Debug\CalcClass.pdb

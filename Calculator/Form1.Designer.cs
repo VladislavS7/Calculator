@@ -74,6 +74,7 @@ namespace Calculator
             // 
             this.text_Expression.Location = new System.Drawing.Point(147, 32);
             this.text_Expression.Name = "text_Expression";
+            this.text_Expression.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.text_Expression.Size = new System.Drawing.Size(228, 22);
             this.text_Expression.TabIndex = 1;
             // 
@@ -384,6 +385,7 @@ namespace Calculator
             // 
             // Form1
             // 
+            this.AcceptButton = this.btn_equal;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 455);

@@ -22,6 +22,7 @@ namespace Calculator
         {
             InitializeComponent();
         }
+       
         public Form1(string v)
         {
             InitializeComponent();
@@ -32,7 +33,16 @@ namespace Calculator
 
         private void btn_OpenArc_Click(object sender, EventArgs e)
         {
+            List<char> digits = new List<char>() { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ')'};
+            if(digits.Contains(text_Expression.Text[text_Expression.Text.Length - 1]))
+            {
+                text_Expression.Text += "*(";
+            }
+            else
+            {
                 text_Expression.Text += "(";
+            }
+            
         }
 
         private void btn_CloseArc_Click(object sender, EventArgs e)
@@ -230,8 +240,6 @@ namespace Calculator
 
         private void btn_equal_Click(object sender, EventArgs e)
         {
-            //Обчислення
-
             try
             {
                 if (CharIsAnOperator(text_Expression.Text[text_Expression.Text.Length - 1].ToString()) || (text_Expression.Text[text_Expression.Text.Length - 1].ToString().Equals(".")) || (text_Expression.Text[text_Expression.Text.Length - 1].ToString().Equals("(")))
@@ -273,9 +281,7 @@ namespace Calculator
         private void btn_M_Click(object sender, EventArgs e)
         {
 
-            //
-            //Потрібно додати число до пам'яті
-            //
+            btn_equal_Click(sender, e);
 
             if (text_Resualt.Text.Contains("Error"))
             {
@@ -284,19 +290,52 @@ namespace Calculator
             }
             else
             {
-                double result = 0;
+                
                 if (text_Resualt.Text.Length > 0)
                 {
-                    result = Convert.ToDouble(text_Resualt.Text);// Число з результату
+                    Memory = Convert.ToDouble(text_Resualt.Text);// Число з результату
                 }
-                
             }
         }
 
         //Використати з пам'яті
         private void btn_MR_Click(object sender, EventArgs e)
         {
-            text_Expression.Text += "+" + Memory;
+            if(Memory != 0)
+            {
+                string tmp = string.Empty;
+                switch (text_Expression.Text[text_Expression.Text.Length - 1])
+                {
+                    case '+':
+                        text_Expression.Text += Memory;
+                        break;
+                    case '-':
+                        tmp = text_Expression.Text.Remove(text_Expression.Text.Length - 1);
+                        tmp += "+" + Memory;
+                        text_Expression.Text = tmp;
+                        break;
+                    case '*':
+                        tmp = text_Expression.Text.Remove(text_Expression.Text.Length - 1);
+                        tmp += "+" + Memory;
+                        text_Expression.Text = tmp;
+                        break;
+                    case '/':
+                        tmp = text_Expression.Text.Remove(text_Expression.Text.Length - 1);
+                        tmp += "+" + Memory;
+                        text_Expression.Text = tmp;
+                        break;
+                    case '(':
+                        text_Expression.Text += Memory;
+                        break;
+                    case ')':
+                        text_Expression.Text += "+" + Memory;
+                        break;
+                    default:
+                        text_Expression.Text += "+" + Memory;
+                        break;
+                }
+                
+            }
         }
 
         //Обнудення пам'яті
@@ -305,18 +344,13 @@ namespace Calculator
             Memory = 0;
         }
 
-        //Обробка натискання на кнопки з клавіатури
+        //Обробка натискання на кнопку з клавіатури
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
-            if (e.KeyCode == Keys.Enter)
-            {
-                MessageBox.Show("Обчислення виразу");
-            }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -326,6 +360,5 @@ namespace Calculator
             this.Controls.Add(btn_equal);
             btn_equal.PerformClick();
         }
-
     }
 }
