@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KJWqwoxL0UUPMXsUgoWx9AtO20RkEh+Xs1EHqc64H3jjH6KD7MmjdrJW7AF0lP6024ohLx5H0+EIsgytSix9VQ==",
+  "dgSpecHash": "BJIjFn0NygVD2xjfbyOPrGUUT08aDdcGLbWGQvtkp7Tr2+BaB9RmwhXHrRvF4UvPFE30fq9LX9wVDZllutDUJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\temp\\source\\repos\\command work\\exam\\Calculator\\AnalaizerClass\\AnalaizerClass.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\vipmk\\Desktop\\ExamTry\\Calculator\\AnalaizerClass\\AnalaizerClass.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vipmk\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\vipmk\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\vipmk\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

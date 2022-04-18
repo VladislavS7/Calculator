@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8072e290-af6a-437d-baa6-222250c0c9f5": {
+      "ProjectGuid": "8072e290-af6a-437d-baa6-222250c0c9f5",
+      "DisplayName": "Calculator",
+      "ColorIndex": 0
+    },
+    "1634e277-b415-4216-9d02-0bf05e7ed231": {
+      "ProjectGuid": "1634e277-b415-4216-9d02-0bf05e7ed231",
+      "DisplayName": "AnalaizerClass",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
