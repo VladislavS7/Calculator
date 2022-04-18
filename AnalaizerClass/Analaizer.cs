@@ -14,6 +14,14 @@ namespace AnalaizerClass
         private static int erposition = 0;
         public static string expression = "";
         public static bool ShowMessage = true;
+        public Analaizer()
+        {
+            ContainerOperator.Add_Operators(new Operator("*", 3));
+            ContainerOperator.Add_Operators(new Operator("/", 3));
+            ContainerOperator.Add_Operators(new Operator("+", 2));
+            ContainerOperator.Add_Operators(new Operator("-", 2));
+            ContainerOperator.Add_Operators(new Operator("(", 1));
+        }
         public static bool CheckCurrency()
         {
             int n = 0;
@@ -36,7 +44,7 @@ namespace AnalaizerClass
                 return false;
             }
         }
-        public static string Format()
+        public string Format()
         {
             string result = "";
             string op = "*/+-";
@@ -58,17 +66,23 @@ namespace AnalaizerClass
 
                 if (Char.IsDigit(expression[i]) && !Char.IsDigit(expression[i + 1]) || op.Contains(expression[i]))
                     result += ' ';
-                else if (!op.Contains(expression[i]) && !Char.IsDigit(expression[i]) && expression[i] != ' ')
-                    return $"&Error 02 at <{i}>";
+                //else if (!op.Contains(expression[i]) && !Char.IsDigit(expression[i]) && expression[i] != ' ')
+                //{
+                //    string v = $"&Error 02 at <{i}>";
+                //    return v;
+                //}
                 else if (op.Contains(expression[i]) && op.Contains(expression[i + 1]))
-                    return $"&Error 04 at <{i + 1}>";
+                {
+                    string v1 = $"&Error 04 at <{i + 1}>";
+                    return v1;
+                }
             }
 
-            for (int i = 0; i < result.Length; ++i)
-            {
-                if (expression[i] == '/' && expression[i + 1] == '0' && expression[i + 2] == ' ')
-                    return "&Error 9";
-            }
+            //for (int i = 0; i < result.Length; ++i)
+            //{
+            //    if (expression[i] == '/' && expression[i + 1] == '0' && expression[i + 2] == ' ')
+            //        return "&Error 9";
+            //}
 
             string[] numbers = Regex.Split(expression, @"\D+");
             foreach (string value in numbers)
@@ -87,19 +101,108 @@ namespace AnalaizerClass
 
             return result;
         }
-        public static System.Collections.ArrayList CreateStack()
+        public static System.Collections.ArrayList CreateStack(string ss)
         {
-            return new System.Collections.ArrayList();
+            System.Collections.ArrayList list = new System.Collections.ArrayList();
+            string input_string = "";
+            Stack<string> operators_stack = new Stack<string>();
+            string temp;
+            int ro;
+            int lo;
+            foreach (char c in input_string)
+            {
+                list.Add(c);
+            }
+
+            foreach (char c in ss)
+            {
+                if (Char.IsDigit(c))
+                {
+                    input_string += c;
+                    continue;
+                }
+                if (c == '+' || c == '-' || c == '*' || c == '/')
+                {
+                    input_string += " ";
+                    if (operators_stack.Count == 0)
+                    {
+                        operators_stack.Push(Convert.ToString(c));
+                        continue;
+                    }
+                    else if (operators_stack.Count != 0)
+                    {
+                        if (ContainerOperator.Find_Operator(operators_stack.Peek()).priority < ContainerOperator.Find_Operator(Convert.ToString(c)).priority)
+                        {
+                            operators_stack.Push(Convert.ToString(c));
+                            continue;
+                        }
+                    }
+                    if (operators_stack.Count != 0)
+                    {
+                        try
+                        {
+                            while (ContainerOperator.Find_Operator(operators_stack.Peek()).priority >= ContainerOperator.Find_Operator(Convert.ToString(c)).priority)
+                            {
+
+                                input_string += operators_stack.Pop();
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        if (operators_stack.Count == 0)
+                        {
+                            operators_stack.Push(Convert.ToString(c));
+                            continue;
+                        }
+                        else if (operators_stack.Count != 0)
+                        {
+                            if (ContainerOperator.Find_Operator(operators_stack.Peek()).priority < ContainerOperator.Find_Operator(Convert.ToString(c)).priority)
+                            {
+                                operators_stack.Push(Convert.ToString(c));
+                                continue;
+                            }
+                        }
+                    }
+                }
+                if (c == '(')
+                {
+
+                    operators_stack.Push(Convert.ToString(c));
+                }
+                if (c == ')')
+                {
+                    while (operators_stack.Peek() != "(")
+                    {
+                        input_string += " ";
+                        input_string += operators_stack.Pop();
+                    }
+                    operators_stack.Pop();
+                    continue;
+                }
+            }
+            while (operators_stack.Count != 0)
+            {
+                input_string += " ";
+                input_string += operators_stack.Pop();
+            }
+
+            foreach (char c in input_string)
+            {
+                list.Add(Convert.ToString(c));
+            }
+            return list;
         }
-        public static string RunEstimate()
+        public string RunEstimate()
         {
             string[] expTokens = expression.Split(' ');
-            Stack<double> stack = new Stack<double>();
-            double number = 0;
+            Stack<decimal> stack = new Stack<decimal>();
+            decimal number = decimal.Zero;
 
             foreach (string token in expTokens)
             {
-                if (double.TryParse(token, out number))
+                if (decimal.TryParse(token, out number))
                 {
                     stack.Push(number);
                 }
@@ -109,24 +212,24 @@ namespace AnalaizerClass
                     {
                         case "*":
                             {
-                                stack.Push(CalcClass.Mult(stack.Pop(), stack.Pop()));
+                                stack.Push(stack.Pop() * stack.Pop());
                                 break;
                             }
                         case "/":
                             {
                                 number = stack.Pop();
-                                stack.Push(CalcClass.Div(stack.Pop(), number));
+                                stack.Push(stack.Pop() / number);
                                 break;
                             }
                         case "+":
                             {
-                                stack.Push(CalcClass.Add(stack.Pop(), stack.Pop()));
+                                stack.Push(stack.Pop() + stack.Pop());
                                 break;
                             }
                         case "-":
                             {
                                 number = stack.Pop();
-                                stack.Push(CalcClass.Sub(stack.Pop(), number));
+                                stack.Push(stack.Pop() - number);
                                 break;
                             }
                         default:
@@ -138,7 +241,7 @@ namespace AnalaizerClass
 
             return stack.Pop().ToString();
         }
-        public static string Estimate()
+        public string Estimate()
         {
             if (CheckCurrency() == false)
                 throw new Exception($"Error 1 at <{erposition}>");
@@ -148,9 +251,15 @@ namespace AnalaizerClass
                 throw new Exception(result);
 
             expression = result;
-            ArrayList stack = CreateStack();
+            ArrayList stack = CreateStack(result);
 
-            expression = stack.ToString();
+
+            expression = "";
+            foreach (var item in stack)
+            {
+                expression += item.ToString();
+            }
+            Console.WriteLine(expression);
             return RunEstimate();
         }
     }
