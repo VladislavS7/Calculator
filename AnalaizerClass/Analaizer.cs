@@ -8,7 +8,7 @@ namespace AnalaizerClass
     public class Analaizer
     {
         private static int erposition = 0;
-        public static string expression = "12+2*((3*4)+(11/5))";
+        public static string expression = "";
         public static bool ShowMessage = true;
         public Analaizer()
         {
