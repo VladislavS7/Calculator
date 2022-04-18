@@ -1,0 +1,9 @@
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\bin\Debug\AnalaizerClass.dll
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\bin\Debug\AnalaizerClass.pdb
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\bin\Debug\CalcClass.dll
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\bin\Debug\CalcClass.pdb
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\obj\Debug\AnalaizerClass.csproj.AssemblyReference.cache
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\obj\Debug\AnalaizerClass.csproj.CoreCompileInputs.cache
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\obj\Debug\AnalaizerClass.csproj.CopyComplete
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\obj\Debug\AnalaizerClass.dll
+C:\Users\temp\source\repos\command work\exam\Calculator\AnalaizerClass\obj\Debug\AnalaizerClass.pdb
